@@ -13470,7 +13470,7 @@ input[type="number"] {
   pointer-events:none
 }
 /* wrap  masonary card → card → thumbnail cover → after pseudo-element → <img> element — sets: position, -o-object-fit, object-fit */
-.wrap__masonary-card .card .thumbnail-cover ::after img {
+.wrap__masonary-card .card .thumbnail-cover img {
   position:relative;
   -o-object-fit:cover;
   object-fit:cover
