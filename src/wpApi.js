@@ -1,6 +1,6 @@
 // src/wpApi.js
 
-const WP_BASE_URL = 'http://thegoamonitor.com/wp-json/wp/v2';
+const WP_BASE_URL = 'https://thegoamonitor.com/wp-json/wp/v2';
 
 function mapToGroupCategory(wpCategoryName) {
     if (!wpCategoryName) return "NATION";
