@@ -63,7 +63,7 @@ function Home() {
     if (loading) {
         return (
             <div className="container text-center py-5">
-                <p className="text-muted font-italic">Connecting to GoaMonitor WordPress Backend...</p>
+                <p className="text-muted font-italic">Loading...</p>
             </div>
         );
     }
@@ -121,7 +121,8 @@ function Home() {
             <section className="pt-0">
                 <div className="popular__section-news">
                     <div className="container">
-                        <div className="row align-items-start">
+                        {/* MATCHED LIVE SITE: align-items-stretch */}
+                        <div className="row align-items-stretch" style={{ position: 'relative' }}>
                             {/* Recent Post Area */}
                             <div className="col-md-12 col-lg-8">
                                 <div className="wrapper__list__article">
@@ -199,8 +200,8 @@ function Home() {
                                 })}
                             </div>
 
-                            {/* Popular Post Sidebar Component */}
-                            <div className="col-md-12 col-lg-4">
+                            {/* Popular Post Sidebar Component - MATCHED LIVE SITE: d-flex flex-column */}
+                            <div className="col-md-12 col-lg-4 d-flex flex-column">
                                 <PopularSidebar sidebarListArticles={sidebarListArticles} />
                             </div>
                         </div>

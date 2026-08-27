@@ -32,12 +32,6 @@ function Login() {
                                     <h4 className="card-title mb-4">Sign in</h4>
                                     {/* Direct secure form submission to WordPress backend login handler */}
                                     <form action="https://thegoamonitor.com/wp-login.php" method="POST">
-                                        <a href="#" className="btn btn-facebook btn-block mb-2 text-white">
-                                            <i className="fa fa-facebook"></i> &nbsp; Sign in with Facebook
-                                        </a>
-                                        <a href="#" className="btn btn-primary btn-block mb-4">
-                                            <i className="fa fa-google"></i> &nbsp; Sign in with Google
-                                        </a>
                                         <div className="form-group">
                                             <input 
                                                 className="form-control" 
@@ -58,7 +52,6 @@ function Login() {
                                         </div>
 
                                         <div className="form-group">
-                                            <a href="https://thegoamonitor.com/wp-login.php?action=lostpassword" className="float-right" target="_blank" rel="noopener noreferrer">Forgot password?</a>
                                             <label className="float-left custom-control custom-checkbox">
                                                 <input type="checkbox" className="custom-control-input" name="rememberme" value="forever" defaultChecked />
                                                 <span className="custom-control-label"> Remember </span>

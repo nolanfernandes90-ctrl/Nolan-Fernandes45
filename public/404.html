@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GoaMonitor</title>
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // This script takes the current URL and redirects it to the index.html page 
+      // with the query string parameters so React Router can handle deep links.
+      var pathSegmentsToKeep = 1; // Adjust this if your repo name is part of the URL path (e.g., 1 for /repository-name/)
+
+      var l = window.location;
+      var repoName = l.pathname.split('/')[1];
+      
+      // Build the redirect URL pointing back to index.html with the route encoded
+      var redirectUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        '/' + (repoName ? repoName + '/' : '') + '?p=' + encodeURIComponent(l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/')) +
+        (l.search ? '&q=' + encodeURIComponent(l.search.slice(1)) : '') +
+        l.hash;
+
+      window.location.replace(redirectUrl);
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

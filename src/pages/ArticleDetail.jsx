@@ -48,7 +48,7 @@ function ArticleDetail() {
                 <div className="spinner-border text-danger mb-3" role="status">
                     <span className="sr-only">Loading...</span>
                 </div>
-                <p className="text-muted font-italic">Loading article details...</p>
+                <p className="text-muted font-italic">Loading your article...</p>
             </div>
         );
     }
@@ -169,7 +169,9 @@ function ArticleDetail() {
                                             <input type="email" id="email" name="email" required="required" />
                                         </p>
                                         <p className="form-submit">
-                                            <input type="submit" name="submit" id="submit" className="submit btn btn-primary" defaultValue="Post Comment" />
+                                            <button type="submit" name="submit" id="submit" className="submit btn btn-primary">
+                                                Submit Comment
+                                            </button>
                                         </p>
                                     </form>
                                 </div>

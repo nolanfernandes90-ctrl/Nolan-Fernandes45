@@ -61,12 +61,12 @@ function Header() {
                             </ul>
                         </div>
 
-                        {/* Social Media Links (Right) */}
+                        {/* Social Media Links (Right) - Updated to open in new tab */}
                         <div className="col-md-3 text-right">
                             <ul className="list-inline mb-0">
-                                <li className="list-inline-item ml-3"><a href="#" className="text-white"><i className="fa fa-facebook"></i></a></li>
-                                <li className="list-inline-item ml-3"><a href="#" className="text-white"><i className="fa fa-twitter"></i></a></li>
-                                <li className="list-inline-item ml-3"><a href="#" className="text-white"><i className="fa fa-instagram"></i></a></li>
+                                <li className="list-inline-item ml-3"><a href="https://www.facebook.com/thegoamonitor" target="_blank" rel="noopener noreferrer" className="text-white"><i className="fa fa-facebook"></i></a></li>
+                                <li className="list-inline-item ml-3"><a href="https://x.com/thegoamonitor" target="_blank" rel="noopener noreferrer" className="text-white"><i className="fa fa-twitter"></i></a></li>
+                                <li className="list-inline-item ml-3"><a href="https://www.instagram.com/thegoamonitor/" target="_blank" rel="noopener noreferrer" className="text-white"><i className="fa fa-instagram"></i></a></li>
                             </ul>
                         </div>
                     </div>

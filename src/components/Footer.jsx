@@ -8,7 +8,7 @@ function Footer() {
                 <div className="row justify-content-center text-left" style={{ margin: '0 auto', maxWidth: '1000px' }}>
                     {/* Column 1: News & Society */}
                     <div className="col-lg-3 col-md-3 col-6 mb-3 px-2">
-                        <h6 className="text-uppercase mb-2 text-danger" style={{ fontSize: '14px', letterSpacing: '0.5px', fontWeight: 'bold' }}>News & Society</h6>
+                        <h6 className="text-uppercase mb-2 text-danger" style={{ fontSize: '14px', letterSpacing: '0.5px', fontWeight: 'bold' }}><u>News & Society</u></h6>
                         <ul className="list-unstyled mb-0" style={{ fontSize: '13px', lineHeight: '1.9' }}>
                             <li><Link to="/category/politics" className="text-white">Politics</Link></li>
                             <li><Link to="/category/crime" className="text-white">Crime</Link></li>
@@ -21,7 +21,7 @@ function Footer() {
 
                     {/* Column 2: Business & Lifestyle */}
                     <div className="col-lg-3 col-md-3 col-6 mb-3 px-2">
-                        <h6 className="text-uppercase mb-2 text-danger" style={{ fontSize: '14px', letterSpacing: '0.5px', fontWeight: 'bold' }}>Business & Lifestyle</h6>
+                        <h6 className="text-uppercase mb-2 text-danger" style={{ fontSize: '14px', letterSpacing: '0.5px', fontWeight: 'bold' }}><u>Business & Lifestyle</u></h6>
                         <ul className="list-unstyled mb-0" style={{ fontSize: '13px', lineHeight: '1.9' }}>
                             <li><Link to="/category/business" className="text-white">Business</Link></li>
                             <li><Link to="/category/economy" className="text-white">Economy</Link></li>
@@ -34,7 +34,7 @@ function Footer() {
 
                     {/* Column 3: Sports, Tech & Travel */}
                     <div className="col-lg-3 col-md-3 col-6 mb-3 px-2">
-                        <h6 className="text-uppercase mb-2 text-danger" style={{ fontSize: '14px', letterSpacing: '0.5px', fontWeight: 'bold' }}>Sports, Tech & Travel</h6>
+                        <h6 className="text-uppercase mb-2 text-danger" style={{ fontSize: '14px', letterSpacing: '0.5px', fontWeight: 'bold' }}><u>Sports, Tech & Travel</u></h6>
                         <ul className="list-unstyled mb-0" style={{ fontSize: '13px', lineHeight: '1.9' }}>
                             <li><Link to="/category/sports" className="text-white">Sports</Link></li>
                             <li><Link to="/category/technology" className="text-white">Technology</Link></li>
@@ -47,7 +47,7 @@ function Footer() {
 
                     {/* Column 4: Quick Navigation */}
                     <div className="col-lg-3 col-md-3 col-6 mb-3 px-2">
-                        <h6 className="text-uppercase mb-2 text-danger" style={{ fontSize: '14px', letterSpacing: '0.5px', fontWeight: 'bold' }}>Quick Navigation</h6>
+                        <h6 className="text-uppercase mb-2 text-danger" style={{ fontSize: '14px', letterSpacing: '0.5px', fontWeight: 'bold' }}><u>Quick Navigation</u></h6>
                         <ul className="list-unstyled mb-0" style={{ fontSize: '13px', lineHeight: '1.9' }}>
                             <li><Link to="/" className="text-white">Home</Link></li>
                             <li><Link to="/about" className="text-white">About Us</Link></li>
@@ -67,28 +67,23 @@ function Footer() {
                     <div className="col-md-6 text-center text-md-right">
                         <ul className="list-inline mb-0">
                             <li className="list-inline-item mx-1">
-                                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="btn btn-social rounded text-white facebook" aria-label="Facebook">
+                                <a href="https://www.facebook.com/thegoamonitor" target="_blank" rel="noopener noreferrer" className="btn btn-social rounded text-white facebook" aria-label="Facebook">
                                     <i className="fa fa-facebook"></i>
                                 </a>
                             </li>
                             <li className="list-inline-item mx-1">
-                                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="btn btn-social rounded text-white twitter" aria-label="Twitter">
+                                <a href="https://x.com/thegoamonitor" target="_blank" rel="noopener noreferrer" className="btn btn-social rounded text-white twitter" aria-label="Twitter">
                                     <i className="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li className="list-inline-item mx-1">
+                                <a href="https://www.instagram.com/thegoamonitor/" target="_blank" rel="noopener noreferrer" className="btn btn-social rounded text-white instagram" aria-label="Instagram">
+                                    <i className="fa fa-instagram"></i>
                                 </a>
                             </li>
                             <li className="list-inline-item mx-1">
                                 <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" className="btn btn-social rounded text-white whatsapp" aria-label="WhatsApp">
                                     <i className="fa fa-whatsapp"></i>
-                                </a>
-                            </li>
-                            <li className="list-inline-item mx-1">
-                                <a href="https://telegram.org" target="_blank" rel="noopener noreferrer" className="btn btn-social rounded text-white telegram" aria-label="Telegram">
-                                    <i className="fa fa-telegram"></i>
-                                </a>
-                            </li>
-                            <li className="list-inline-item mx-1">
-                                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="btn btn-social rounded text-white linkedin" aria-label="LinkedIn">
-                                    <i className="fa fa-linkedin"></i>
                                 </a>
                             </li>
                         </ul>
@@ -100,7 +95,7 @@ function Footer() {
                 {/* Bottom Row: Left-aligned Copyright */}
                 <div className="row align-items-center pt-2">
                     <div className="col-md-12 text-center text-md-left">
-                        <span style={{ fontSize: '12px', color: '#aaa' }}>Copyright © 2026 GoaMonitor. All rights reserved.</span>
+                        <span style={{ fontSize: '12px', color: '#aaa' }}>Copyright © 2026 GoaMonitor. All rights reserved   |   Designed & Developed by <a href="#">Cyber Creative</a></span>
                     </div>
                 </div>
             </div>
