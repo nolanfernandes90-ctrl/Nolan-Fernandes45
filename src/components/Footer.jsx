@@ -1,104 +1,183 @@
 import { Link } from 'react-router-dom';
+import logoWhite from '../assets/logo.png';
 
 function Footer() {
     return (
-        <footer className="bg__footer-dark text-white">
-            <div className="container py-4">
-                {/* 4 Category Columns brought close together in the center */}
-                <div className="row justify-content-center text-left" style={{ margin: '0 auto', maxWidth: '1000px' }}>
-                    {/* Column 1: News & Society */}
-                    <div className="col-lg-3 col-md-3 col-6 mb-3 px-2">
-                        <h6 className="text-uppercase mb-2 text-danger" style={{ fontSize: '14px', letterSpacing: '0.5px', fontWeight: 'bold' }}><u>News & Society</u></h6>
-                        <ul className="list-unstyled mb-0" style={{ fontSize: '13px', lineHeight: '1.9' }}>
-                            <li><Link to="/category/politics" className="text-white">Politics</Link></li>
-                            <li><Link to="/category/crime" className="text-white">Crime</Link></li>
-                            <li><Link to="/category/development" className="text-white">Development</Link></li>
-                            <li><Link to="/category/education" className="text-white">Education</Link></li>
-                            <li><Link to="/category/environment" className="text-white">Environment</Link></li>
-                            <li><Link to="/category/agriculture" className="text-white">Agriculture</Link></li>
-                        </ul>
-                    </div>
+        <footer className="gm-footer">
 
-                    {/* Column 2: Business & Lifestyle */}
-                    <div className="col-lg-3 col-md-3 col-6 mb-3 px-2">
-                        <h6 className="text-uppercase mb-2 text-danger" style={{ fontSize: '14px', letterSpacing: '0.5px', fontWeight: 'bold' }}><u>Business & Lifestyle</u></h6>
-                        <ul className="list-unstyled mb-0" style={{ fontSize: '13px', lineHeight: '1.9' }}>
-                            <li><Link to="/category/business" className="text-white">Business</Link></li>
-                            <li><Link to="/category/economy" className="text-white">Economy</Link></li>
-                            <li><Link to="/category/food" className="text-white">Food</Link></li>
-                            <li><Link to="/category/health" className="text-white">Health</Link></li>
-                            <li><Link to="/category/fashion+%26+style" className="text-white">Fashion & Style</Link></li>
-                            <li><Link to="/category/arts+%26+culture" className="text-white">Arts & Culture</Link></li>
-                        </ul>
-                    </div>
+            {/* =========================
+                MAIN FOOTER
+            ========================== */}
+            <div className="gm-footer-container">
 
-                    {/* Column 3: Sports, Tech & Travel */}
-                    <div className="col-lg-3 col-md-3 col-6 mb-3 px-2">
-                        <h6 className="text-uppercase mb-2 text-danger" style={{ fontSize: '14px', letterSpacing: '0.5px', fontWeight: 'bold' }}><u>Sports, Tech & Travel</u></h6>
-                        <ul className="list-unstyled mb-0" style={{ fontSize: '13px', lineHeight: '1.9' }}>
-                            <li><Link to="/category/sports" className="text-white">Sports</Link></li>
-                            <li><Link to="/category/technology" className="text-white">Technology</Link></li>
-                            <li><Link to="/category/tourism" className="text-white">Tourism</Link></li>
-                            <li><Link to="/category/travel" className="text-white">Travel</Link></li>
-                            <li><Link to="/category/science" className="text-white">Science</Link></li>
-                            <li><Link to="/category/entertainment" className="text-white">Entertainment</Link></li>
-                        </ul>
-                    </div>
+                <div className="gm-footer-grid">
 
-                    {/* Column 4: Quick Navigation */}
-                    <div className="col-lg-3 col-md-3 col-6 mb-3 px-2">
-                        <h6 className="text-uppercase mb-2 text-danger" style={{ fontSize: '14px', letterSpacing: '0.5px', fontWeight: 'bold' }}><u>Quick Navigation</u></h6>
-                        <ul className="list-unstyled mb-0" style={{ fontSize: '13px', lineHeight: '1.9' }}>
-                            <li><Link to="/" className="text-white">Home</Link></li>
-                            <li><Link to="/about" className="text-white">About Us</Link></li>
-                            <li><Link to="/contact" className="text-white">Contact Us</Link></li>
-                            <li><Link to="/login" className="text-white">Login</Link></li>
-                        </ul>
-                    </div>
-                </div>
+                    {/* BRAND */}
+                    <div className="gm-footer-brand">
 
-                {/* Middle Row: Logo Image on Left, Linkable Social Icons on Right */}
-                <div className="row align-items-center py-2 mt-3">
-                    <div className="col-md-6 text-center text-md-left mb-3 mb-md-0">
-                        <Link to="/">
-                            <img src="/images/logo/gmonitor-logo.png" alt="GoaMonitor Logo" className="img-fluid" style={{ maxHeight: '45px' }} />
+                        <Link to="/" className="gm-footer-logo">
+                            <img
+                                src={logoWhite}
+                                alt="GoaMonitor Logo"
+                            />
                         </Link>
+
+                        <p>
+                            Independent news and journalism from Goa,
+                            bringing you the latest stories, developments
+                            and voices from across the state.
+                        </p>
+
+                        <div className="gm-socials">
+
+                            <a
+                                href="https://www.facebook.com/thegoamonitor"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Facebook"
+                            >
+                                <i className="fa fa-facebook"></i>
+                            </a>
+
+                            <a
+                                href="https://x.com/thegoamonitor"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Twitter"
+                            >
+                               <span
+    style={{
+        fontSize: '16px',
+        fontWeight: '700',
+        lineHeight: '1'
+    }}
+>
+    𝕏
+</span>
+                            </a>
+
+                            <a
+                                href="https://www.instagram.com/thegoamonitor/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Instagram"
+                            >
+                                <i className="fa fa-instagram"></i>
+                            </a>
+
+                            <a
+                                href="https://wa.me/919923580022?text=Hello%2C%20I%20would%20like%20to%20get%20in%20touch%20with%20GoaMonitor."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="WhatsApp"
+                            >
+                                <i className="fa fa-whatsapp"></i>
+                            </a>
+
+                        </div>
+
                     </div>
-                    <div className="col-md-6 text-center text-md-right">
-                        <ul className="list-inline mb-0">
-                            <li className="list-inline-item mx-1">
-                                <a href="https://www.facebook.com/thegoamonitor" target="_blank" rel="noopener noreferrer" className="btn btn-social rounded text-white facebook" aria-label="Facebook">
-                                    <i className="fa fa-facebook"></i>
-                                </a>
-                            </li>
-                            <li className="list-inline-item mx-1">
-                                <a href="https://x.com/thegoamonitor" target="_blank" rel="noopener noreferrer" className="btn btn-social rounded text-white twitter" aria-label="Twitter">
-                                    <i className="fa fa-twitter"></i>
-                                </a>
-                            </li>
-                            <li className="list-inline-item mx-1">
-                                <a href="https://www.instagram.com/thegoamonitor/" target="_blank" rel="noopener noreferrer" className="btn btn-social rounded text-white instagram" aria-label="Instagram">
-                                    <i className="fa fa-instagram"></i>
-                                </a>
-                            </li>
-                            <li className="list-inline-item mx-1">
-                                <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" className="btn btn-social rounded text-white whatsapp" aria-label="WhatsApp">
-                                    <i className="fa fa-whatsapp"></i>
-                                </a>
-                            </li>
-                        </ul>
+
+
+                    {/* NEWS & SOCIETY */}
+                    <div className="gm-footer-column">
+
+                        <h3>News & Society</h3>
+
+                        <Link to="/category/politics">Politics</Link>
+                        <Link to="/category/crime">Crime</Link>
+                        <Link to="/category/development">Development</Link>
+                        <Link to="/category/education">Education</Link>
+                        <Link to="/category/environment">Environment</Link>
+                        <Link to="/category/agriculture">Agriculture</Link>
+
                     </div>
+
+
+                    {/* BUSINESS & LIFESTYLE */}
+                    <div className="gm-footer-column">
+
+                        <h3>Business & Lifestyle</h3>
+
+                        <Link to="/category/business">Business</Link>
+                        <Link to="/category/economy">Economy</Link>
+                        <Link to="/category/food">Food</Link>
+                        <Link to="/category/health">Health</Link>
+                        <Link to="/category/fashion+%26+style">
+                            Fashion & Style
+                        </Link>
+                        <Link to="/category/arts+%26+culture">
+                            Arts & Culture
+                        </Link>
+
+                    </div>
+
+
+                    {/* SPORTS / TECH / TRAVEL */}
+                    <div className="gm-footer-column">
+
+                        <h3>Sports, Tech & Travel</h3>
+
+                        <Link to="/category/sports">Sports</Link>
+                        <Link to="/category/technology">Technology</Link>
+                        <Link to="/category/tourism">Tourism</Link>
+                        <Link to="/category/travel">Travel</Link>
+                        <Link to="/category/science">Science</Link>
+                        <Link to="/category/entertainment">
+                            Entertainment
+                        </Link>
+
+                    </div>
+
+
+                    {/* QUICK NAVIGATION */}
+                    <div className="gm-footer-column">
+
+                        <h3>Quick Navigation</h3>
+
+                        <Link to="/">Home</Link>
+                        {/* <Link to="/about">About Us</Link> */}
+                        <Link to="/contact">Contact Us</Link>
+                        <Link to="/login">Login</Link>
+
+                    </div>
+
                 </div>
 
-                <div className="border-line border-top-1 my-2" style={{ borderColor: '#2e2f3c' }}></div>
 
-                {/* Bottom Row: Left-aligned Copyright */}
-                <div className="row align-items-center pt-2">
-                    <div className="col-md-12 text-center text-md-left">
-                        <span style={{ fontSize: '12px', color: '#aaa' }}>Copyright © 2026 GoaMonitor. All rights reserved   |   Designed & Developed by <a href="#">Cyber Creative</a></span>
-                    </div>
+                {/* =========================
+                    DIVIDER
+                ========================== */}
+
+                <div className="gm-footer-divider"></div>
+
+
+                {/* =========================
+                    BOTTOM
+                ========================== */}
+
+                <div className="gm-footer-bottom">
+
+                    <span>
+                        Copyright © {new Date().getFullYear()} GoaMonitor.
+                        All rights reserved.
+                    </span>
+
+                   <span>
+    Designed & Developed by{' '}
+    <a
+        href="https://cybercreative.in/"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Cyber Creative
+    </a>
+</span>
+
                 </div>
+
             </div>
+
         </footer>
     );
 }

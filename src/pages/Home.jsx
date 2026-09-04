@@ -1,215 +1,878 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchWpPosts } from '../wpApi';
+
 import HeroSection from '../components/HeroSection';
 import PopularSidebar from '../components/PopularSidebar';
+import HomeFeed from '../components/HomeFeed';
+
 
 function Home() {
+
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
+
+
+    /* =========================================================
+       CATEGORY GROUPS
+    ========================================================= */
 
     const categoryGroups = [
         {
             name: "NATION",
-            subCategories: ["Politics", "Crime", "Development", "Education", "Environment", "Agriculture", "Accidents", "Local News"]
+            subCategories: [
+                "Politics",
+                "Crime",
+                "Development",
+                "Education",
+                "Environment",
+                "Agriculture",
+                "Accidents",
+                "Local News"
+            ]
         },
+
         {
             name: "BUSINESS",
-            subCategories: ["Business", "Economy", "Technology", "Market", "Finance"]
+            subCategories: [
+                "Business",
+                "Economy",
+                "Technology",
+                "Market",
+                "Finance"
+            ]
         },
+
         {
             name: "LIFESTYLE",
-            subCategories: ["Food", "Health", "Fashion & Style", "Arts & Culture", "Lifestyle", "Tourism"]
+            subCategories: [
+                "Food",
+                "Health",
+                "Fashion & Style",
+                "Arts & Culture",
+                "Lifestyle",
+                "Tourism"
+            ]
         },
+
         {
             name: "SPORTS & TRAVEL",
-            subCategories: ["Sports", "Travel", "Science", "Entertainment"]
+            subCategories: [
+                "Sports",
+                "Travel",
+                "Science",
+                "Entertainment"
+            ]
         }
     ];
 
-    // Fetch live WordPress posts
+
+    /* =========================================================
+       FETCH WORDPRESS POSTS
+    ========================================================= */
+
     useEffect(() => {
-        fetchWpPosts().then((data) => {
-            if (Array.isArray(data)) {
-                setArticles(data);
-            } else {
+
+        fetchWpPosts()
+            .then((data) => {
+
+                if (Array.isArray(data)) {
+                    setArticles(data);
+                } else {
+                    setArticles([]);
+                }
+
+                setLoading(false);
+
+            })
+            .catch((error) => {
+
+                console.error("Failed to load articles:", error);
+
                 setArticles([]);
-            }
-            setLoading(false);
-        });
+                setLoading(false);
+
+            });
+
     }, []);
 
-    // Load template bundle and re-initialize Slick carousels after articles render
+
+    /* =========================================================
+       LOAD TEMPLATE JS
+    ========================================================= */
+
     useEffect(() => {
+
         if (!loading && articles.length > 0) {
+
             const timer = setTimeout(() => {
+
+                const existingScript =
+                    document.getElementById("retnews-js-bundle");
+
+                if (existingScript) {
+                    existingScript.remove();
+                }
+
                 const script = document.createElement('script');
+
                 script.src = "/js/index.bundle.js";
                 script.id = "retnews-js-bundle";
                 script.async = false;
+
                 document.body.appendChild(script);
+
             }, 300);
 
+
             return () => {
+
                 clearTimeout(timer);
-                const existingScript = document.getElementById("retnews-js-bundle");
+
+                const existingScript =
+                    document.getElementById("retnews-js-bundle");
+
                 if (existingScript) {
-                    document.body.removeChild(existingScript);
+                    existingScript.remove();
                 }
+
             };
+
         }
+
     }, [loading, articles]);
 
+
+    /* =========================================================
+       LOADING
+    ========================================================= */
+
     if (loading) {
+
         return (
-            <div className="container text-center py-5">
-                <p className="text-muted font-italic">Loading...</p>
+            <div
+                className="container text-center py-5"
+                style={{
+                    minHeight: '400px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}
+            >
+
+                <p className="text-muted font-italic">
+                    Loading...
+                </p>
+
             </div>
         );
+
     }
 
-    const topCarouselArticles = articles.slice(0, 6);
-    const mainPopularArticles = articles.slice(0, 3);
-    const sidePopularArticles = articles.slice(1, 3);
-    const sidebarListArticles = articles.slice(3, 7);
+
+    /* =========================================================
+       ARTICLE DATA
+    ========================================================= */
+
+    /*
+        TOP = 3 articles
+        This keeps the entire top ticker in ONE ROW.
+    */
+
+    const topCarouselArticles =
+        articles.slice(0, 3);
+
+
+    /*
+        HERO
+    */
+
+    const mainPopularArticles =
+        articles.slice(0, 3);
+
+    const sidePopularArticles =
+        articles.slice(1, 3);
+
+
+    /*
+        SIDEBAR
+    */
+
+    const sidebarListArticles =
+        articles.slice(3, 7);
+
 
     return (
-        <div>
-            {/* Trending News Carousel (Top) */}
-            <section className="bg-light">
+
+        <div className="home-page">
+
+
+            {/* =====================================================
+                TOP TRENDING NEWS
+            ===================================================== */}
+
+            <section
+                className="bg-light home-trending-section"
+                style={{
+                    width: '100%'
+                }}
+            >
+
                 <div className="container">
+
                     <div className="row">
+
                         <div className="col-md-12">
-                            <div className="wrapp__list__article-responsive wrapp__list__article-responsive-carousel">
+
+                            <div
+                                className="wrapp__list__article-responsive home-top-news-row"
+                                style={{
+                                    display: 'grid',
+                                    gridTemplateColumns:
+                                        'repeat(3, minmax(0, 1fr))',
+                                    gap: '25px',
+                                    width: '100%'
+                                }}
+                            >
+
                                 {topCarouselArticles.map((article) => (
-                                    <div className="item px-2" key={`carousel-${article.id}`}>
-                                        <div className="card__post card__post-list">
-                                            <div className="image-sm">
-                                                <Link to={`/article/${article.id}`}>
-                                                    <img src={article.image_url} className="img-fluid" alt={article.title} style={{ height: '80px', objectFit: 'cover' }} />
-                                                </Link>
-                                            </div>
-                                            <div className="card__post__body">
-                                                <div className="card__post__content">
-                                                    <div className="card__post__author-info mb-2">
-                                                        <ul className="list-inline">
-                                                            <li className="list-inline-item"><span className="text-primary">by {article.author}</span></li>
-                                                            <li className="list-inline-item"><span className="text-dark text-capitalize">{article.article_date}</span></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="card__post__title">
-                                                        <h6><Link to={`/article/${article.id}`}>{article.title}</Link></h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-            {/* Extracted Hero Grid Component */}
-            <HeroSection 
-                mainPopularArticles={mainPopularArticles} 
-                sidePopularArticles={sidePopularArticles} 
-            />
+                                    <div
+                                        className="item"
+                                        key={`carousel-${article.id}`}
+                                        style={{
+                                            minWidth: 0
+                                        }}
+                                    >
 
-            {/* Recent Post & Grouped Category Grid Section */}
-            <section className="pt-0">
-                <div className="popular__section-news">
-                    <div className="container">
-                        {/* MATCHED LIVE SITE: align-items-stretch */}
-                        <div className="row align-items-stretch" style={{ position: 'relative' }}>
-                            {/* Recent Post Area */}
-                            <div className="col-md-12 col-lg-8">
-                                <div className="wrapper__list__article">
-                                    <h4 className="border_section">Recent Post</h4>
-                                </div>
-                                <div className="row">
-                                    {articles.slice(0, 4).map((article) => (
-                                        <div className="col-sm-12 col-md-6 mb-4" key={article.id}>
-                                            <div className="card card__post shadow-sm h-100" style={{ border: 'none' }}>
-                                                <Link to={`/article/${article.id}`}>
-                                                    <img 
-                                                        src={article.image_url} 
-                                                        className="card-img-top" 
-                                                        style={{ height: '220px', objectFit: 'cover' }} 
-                                                        alt={article.title} 
+                                        <div
+                                            className="card__post card__post-list"
+                                            style={{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: '12px',
+                                                width: '100%'
+                                            }}
+                                        >
+
+                                            {/* IMAGE */}
+
+                                            <div
+                                                className="image-sm"
+                                                style={{
+                                                    flex: '0 0 100px'
+                                                }}
+                                            >
+
+                                                <Link
+                                                    to={`/article/${article.id}`}
+                                                >
+
+                                                    <img
+                                                        src={article.image_url}
+                                                        className="img-fluid"
+                                                        alt={article.title}
+                                                        style={{
+                                                            width: '100px',
+                                                            height: '70px',
+                                                            objectFit: 'cover',
+                                                            display: 'block'
+                                                        }}
                                                     />
+
                                                 </Link>
-                                                <div className="card-body bg-white p-3 d-flex flex-column justify-content-between">
-                                                    <div>
-                                                        <span className="badge badge-danger mb-2 text-uppercase" style={{ fontSize: '11px' }}>{article.category}</span>
-                                                        <h5 className="card-title mb-2">
-                                                            <Link to={`/article/${article.id}`} className="text-dark text-decoration-none" style={{ fontSize: '16px', fontWeight: 'bold' }}>
+
+                                            </div>
+
+
+                                            {/* TEXT */}
+
+                                            <div
+                                                className="card__post__body"
+                                                style={{
+                                                    flex: 1,
+                                                    minWidth: 0
+                                                }}
+                                            >
+
+                                                <div
+                                                    className="card__post__content"
+                                                >
+
+                                                    <div
+                                                        className="card__post__author-info"
+                                                        style={{
+                                                            marginBottom: '5px'
+                                                        }}
+                                                    >
+
+                                                        <ul
+                                                            className="list-inline mb-0"
+                                                            style={{
+                                                                fontSize: '11px'
+                                                            }}
+                                                        >
+
+                                                            <li className="list-inline-item">
+
+                                                                <span
+                                                                    className="text-primary"
+                                                                >
+                                                                    By {article.author}
+                                                                </span>
+
+                                                            </li>
+
+                                                            <li className="list-inline-item">
+
+                                                                <span
+                                                                    className="text-dark"
+                                                                >
+                                                                    {article.article_date}
+                                                                </span>
+
+                                                            </li>
+
+                                                        </ul>
+
+                                                    </div>
+
+
+                                                    <div className="card__post__title">
+
+                                                        <h6
+                                                            style={{
+                                                                margin: 0,
+                                                                lineHeight: '1.3',
+                                                                fontWeight: '700'
+                                                            }}
+                                                        >
+
+                                                            <Link
+                                                                to={`/article/${article.id}`}
+                                                                className="text-dark"
+                                                                style={{
+                                                                    textDecoration: 'none'
+                                                                }}
+                                                            >
                                                                 {article.title}
                                                             </Link>
-                                                        </h5>
+
+                                                        </h6>
+
                                                     </div>
-                                                    <div className="text-muted mt-2" style={{ fontSize: '13px' }}>
-                                                        <span>By {article.author}</span> &bull; <span>{article.article_date}</span>
-                                                    </div>
+
                                                 </div>
+
                                             </div>
+
                                         </div>
-                                    ))}
+
+                                    </div>
+
+                                ))}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            {/* =====================================================
+                HERO SECTION
+            ===================================================== */}
+
+            <section className="home-hero-section">
+
+                <div className="container">
+
+                    <HeroSection
+                        mainPopularArticles={
+                            mainPopularArticles
+                        }
+                        sidePopularArticles={
+                            sidePopularArticles
+                        }
+                    />
+
+                </div>
+
+            </section>
+
+
+
+            {/* =====================================================
+                RECENT POSTS + SIDEBAR
+            ===================================================== */}
+
+           <section className="pt-0 home-content-section">
+
+                <div
+    className="popular__section-news"
+    style={{
+        width: '100%'
+    }}
+>
+
+                    <div className="container">
+
+                        <div
+                            className="row align-items-start"
+                            style={{
+                                position: 'relative'
+                            }}
+                        >
+
+
+                            {/* =================================================
+                                MAIN CONTENT
+                            ================================================= */}
+
+                            <div
+                                className="col-md-12 col-lg-8"
+                            >
+
+                                {/* =============================================
+                                    RECENT POST TITLE
+                                ============================================= */}
+
+                                <div className="wrapper__list__article">
+
+                                    <h4 className="border_section">
+                                        Recent Post
+                                    </h4>
+
                                 </div>
 
-                                {/* Grouped Category Sections */}
-                                {categoryGroups.map((group, catIdx) => {
-                                    const catArticles = articles.filter(a => 
-                                        a.groupCategory && a.groupCategory.trim().toUpperCase() === group.name.trim().toUpperCase()
-                                    ).slice(0, 4);
 
-                                    return (
-                                        <div key={catIdx}>
-                                            <div className="wrapper__list__article mt-4">
-                                                <h4 className="border_section">{group.name}</h4>
-                                            </div>
-                                            <div className="row">
-                                                {catArticles.length > 0 ? (
-                                                    catArticles.map((article) => (
-                                                        <div className="col-sm-12 col-md-6 mb-4" key={`${group.name}-${article.id}`}>
-                                                            <div className="card card__post shadow-sm h-100" style={{ border: 'none' }}>
-                                                                <Link to={`/article/${article.id}`}>
-                                                                    <img src={article.image_url} className="card-img-top" style={{ height: '220px', objectFit: 'cover' }} alt={article.title} />
-                                                                </Link>
-                                                                <div className="card-body bg-white p-3 d-flex flex-column justify-content-between">
-                                                                    <div>
-                                                                        <span className="badge badge-danger mb-2 text-uppercase" style={{ fontSize: '11px' }}>{article.category}</span>
-                                                                        <h5 className="card-title mb-2">
-                                                                            <Link to={`/article/${article.id}`} className="text-dark text-decoration-none" style={{ fontSize: '16px', fontWeight: 'bold' }}>{article.title}</Link>
-                                                                        </h5>
-                                                                    </div>
-                                                                    <div className="text-muted mt-2" style={{ fontSize: '13px' }}><span>By {article.author}</span> &bull; <span>{article.article_date}</span></div>
-                                                                </div>
+                                {/* =============================================
+                                    RECENT POSTS
+                                ============================================= */}
+
+                                <div className="row">
+
+
+                                    {/* =========================
+                                        FIRST 2 BIG POSTS
+                                    ========================= */}
+
+                                    {articles
+                                        .slice(0, 2)
+                                        .map((article) => (
+
+                                            <div
+                                                className="col-sm-12 col-md-6 mb-4"
+                                                key={`featured-${article.id}`}
+                                            >
+
+                                                <div
+                                                    className="recent-featured-card"
+                                                    style={{
+                                                        position: 'relative',
+                                                        height: '280px',
+                                                        overflow: 'hidden',
+                                                        backgroundColor: '#000'
+                                                    }}
+                                                >
+
+                                                    <Link
+                                                        to={`/article/${article.id}`}
+                                                        style={{
+                                                            display: 'block',
+                                                            width: '100%',
+                                                            height: '100%'
+                                                        }}
+                                                    >
+
+                                                        <img
+                                                            src={article.image_url}
+                                                            alt={article.title}
+                                                            style={{
+                                                                width: '100%',
+                                                                height: '100%',
+                                                                objectFit: 'cover',
+                                                                display: 'block'
+                                                            }}
+                                                        />
+
+
+                                                        {/* DARK GRADIENT */}
+
+                                                        <div
+                                                            style={{
+                                                                position: 'absolute',
+                                                                left: 0,
+                                                                right: 0,
+                                                                bottom: 0,
+                                                                padding:
+                                                                    '50px 20px 18px',
+                                                                background:
+                                                                    'linear-gradient(transparent, rgba(0,0,0,0.9))'
+                                                            }}
+                                                        >
+
+                                                            {/* CATEGORY */}
+
+                                                            <span
+                                                                className="badge badge-danger text-uppercase"
+                                                                style={{
+                                                                    fontSize: '10px',
+                                                                    marginBottom: '8px'
+                                                                }}
+                                                            >
+                                                                {article.category}
+                                                            </span>
+
+
+                                                            {/* TITLE */}
+
+                                                            <h5
+                                                                style={{
+                                                                    color: '#fff',
+                                                                    fontSize: '19px',
+                                                                    lineHeight: '1.3',
+                                                                    fontWeight: '700',
+                                                                    margin: '6px 0'
+                                                                }}
+                                                            >
+                                                                {article.title}
+                                                            </h5>
+
+
+                                                            {/* META */}
+
+                                                            <div
+                                                                style={{
+                                                                    color: '#ddd',
+                                                                    fontSize: '12px'
+                                                                }}
+                                                            >
+                                                                By {article.author}
+                                                                {' • '}
+                                                                {article.article_date}
                                                             </div>
+
                                                         </div>
-                                                    ))
-                                                ) : (
-                                                    <div className="col-12 mb-4">
-                                                        <p className="text-muted font-italic" style={{ fontSize: '13px' }}>No articles found in {group.name} yet.</p>
-                                                    </div>
-                                                )}
+
+                                                    </Link>
+
+                                                </div>
+
                                             </div>
-                                        </div>
-                                    );
-                                })}
+
+                                        ))}
+
+
+
+                                    {/* =========================
+                                        NEXT 4 SMALL POSTS
+                                    ========================= */}
+
+                                    {articles
+                                        .slice(2, 6)
+                                        .map((article) => (
+
+                                            <div
+                                                className="col-sm-12 col-md-6 mb-3"
+                                                key={`small-${article.id}`}
+                                            >
+
+                                                <div
+                                                    className="recent-small-card"
+                                                    style={{
+                                                        display: 'flex',
+                                                        gap: '15px',
+                                                        alignItems: 'flex-start',
+                                                        borderBottom:
+                                                            '1px solid #eee',
+                                                        paddingBottom: '15px'
+                                                    }}
+                                                >
+
+                                                    {/* IMAGE */}
+
+                                                    <Link
+                                                        to={`/article/${article.id}`}
+                                                        style={{
+                                                            flex: '0 0 125px'
+                                                        }}
+                                                    >
+
+                                                        <img
+                                                            src={article.image_url}
+                                                            alt={article.title}
+                                                            style={{
+                                                                width: '125px',
+                                                                height: '90px',
+                                                                objectFit: 'cover',
+                                                                display: 'block'
+                                                            }}
+                                                        />
+
+                                                    </Link>
+
+
+                                                    {/* TEXT */}
+
+                                                    <div
+                                                        style={{
+                                                            flex: 1,
+                                                            minWidth: 0
+                                                        }}
+                                                    >
+
+                                                        {/* META */}
+
+                                                        <div
+                                                            style={{
+                                                                fontSize: '11px',
+                                                                color: '#777',
+                                                                marginBottom: '6px'
+                                                            }}
+                                                        >
+
+                                                            <span
+                                                                style={{
+                                                                    color: '#e00000',
+                                                                    fontWeight: '600'
+                                                                }}
+                                                            >
+                                                                By {article.author}
+                                                            </span>
+
+                                                            {' • '}
+
+                                                            {article.article_date}
+
+                                                        </div>
+
+
+                                                        {/* TITLE */}
+
+                                                        <h6
+                                                            style={{
+                                                                margin: 0,
+                                                                fontSize: '15px',
+                                                                lineHeight: '1.35',
+                                                                fontWeight: '700'
+                                                            }}
+                                                        >
+
+                                                            <Link
+                                                                to={`/article/${article.id}`}
+                                                                className="text-dark"
+                                                                style={{
+                                                                    textDecoration: 'none'
+                                                                }}
+                                                            >
+                                                                {article.title}
+                                                            </Link>
+
+                                                        </h6>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        ))}
+
+                                </div>
+
+
+
+                                {/* =================================================
+                                    GROUPED CATEGORY SECTIONS
+                                ================================================= */}
+
+                                <HomeFeed
+                                    articles={articles}
+                                    categoryGroups={
+                                        categoryGroups
+                                    }
+                                />
+
                             </div>
 
-                            {/* Popular Post Sidebar Component - MATCHED LIVE SITE: d-flex flex-column */}
-                            <div className="col-md-12 col-lg-4 d-flex flex-column">
-                                <PopularSidebar sidebarListArticles={sidebarListArticles} />
+
+
+                            {/* =================================================
+                                RIGHT SIDEBAR
+                            ================================================= */}
+
+                            <div
+                                className="col-md-12 col-lg-4 d-flex flex-column"
+                            >
+
+
+                                {/* =============================================
+                                    EDITOR'S PICK
+                                ============================================= */}
+
+                                {articles.length > 0 && (
+
+                                    <aside
+                                        className="wrapper__list__article mb-4"
+                                    >
+
+                                        <h4 className="border_section">
+                                            Editor's Pick
+                                        </h4>
+
+
+                                        <div
+                                            style={{
+                                                marginTop: '20px',
+                                                background: '#fff',
+                                                boxShadow:
+                                                    '0 2px 10px rgba(0,0,0,0.08)'
+                                            }}
+                                        >
+
+                                            <Link
+                                                to={`/article/${
+                                                    articles[4]?.id ||
+                                                    articles[0].id
+                                                }`}
+                                            >
+
+                                                <img
+                                                    src={
+                                                        articles[4]?.image_url ||
+                                                        articles[0].image_url
+                                                    }
+                                                    alt={
+                                                        articles[4]?.title ||
+                                                        articles[0].title
+                                                    }
+                                                    style={{
+                                                        width: '100%',
+                                                        height: '220px',
+                                                        objectFit: 'cover',
+                                                        display: 'block'
+                                                    }}
+                                                />
+
+                                            </Link>
+
+
+                                            <div
+                                                style={{
+                                                    padding: '15px'
+                                                }}
+                                            >
+
+                                                {/* CATEGORY */}
+
+                                                <span
+                                                    className="badge badge-danger text-uppercase"
+                                                    style={{
+                                                        fontSize: '10px',
+                                                        marginBottom: '8px'
+                                                    }}
+                                                >
+                                                    {
+                                                        articles[4]?.category ||
+                                                        articles[0].category
+                                                    }
+                                                </span>
+
+
+                                                {/* TITLE */}
+
+                                                <h5
+                                                    style={{
+                                                        fontSize: '17px',
+                                                        lineHeight: '1.4',
+                                                        fontWeight: '700',
+                                                        margin: '8px 0'
+                                                    }}
+                                                >
+
+                                                    <Link
+                                                        to={`/article/${
+                                                            articles[4]?.id ||
+                                                            articles[0].id
+                                                        }`}
+                                                        className="text-dark"
+                                                        style={{
+                                                            textDecoration: 'none'
+                                                        }}
+                                                    >
+                                                        {
+                                                            articles[4]?.title ||
+                                                            articles[0].title
+                                                        }
+                                                    </Link>
+
+                                                </h5>
+
+
+                                                {/* META */}
+
+                                                <div
+                                                    style={{
+                                                        fontSize: '12px',
+                                                        color: '#777'
+                                                    }}
+                                                >
+
+                                                    By {
+                                                        articles[4]?.author ||
+                                                        articles[0].author
+                                                    }
+
+                                                    {' • '}
+
+                                                    {
+                                                        articles[4]?.article_date ||
+                                                        articles[0].article_date
+                                                    }
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </aside>
+
+                                )}
+
+
+
+                                {/* =============================================
+                                    POPULAR SIDEBAR
+                                ============================================= */}
+
+                                <PopularSidebar
+                                    sidebarListArticles={
+                                        sidebarListArticles
+                                    }
+                                />
+
                             </div>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </section>
+
         </div>
+
     );
+
 }
+
 
 export default Home;
