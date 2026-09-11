@@ -70,7 +70,7 @@ Message:
 ${formData.message}`;
 
         const whatsappUrl =
-            `https://wa.me/919923580022?text=${encodeURIComponent(
+            `https://wa.me/9112400340?text=${encodeURIComponent(
                 whatsappMessage
             )}`;
 
@@ -327,8 +327,8 @@ ${formData.message}`;
 
                                             <i className="fa fa-phone"></i>
 
-                                            <a href="tel:+919923580022">
-                                                +91 9923580022
+                                            <a href="tel:+919112400340">
+                                                +91 9112400340
                                             </a>
 
                                         </span>
@@ -344,8 +344,8 @@ ${formData.message}`;
 
                                             <i className="fa fa-envelope"></i>
 
-                                            <a href="mailto:contact@goamonitor.com">
-                                                contact@goamonitor.com
+                                            <a href="mailto:thegoamonitor@gmail.com">
+                                                thegoamonitor@gmail.com
                                             </a>
 
                                         </span>

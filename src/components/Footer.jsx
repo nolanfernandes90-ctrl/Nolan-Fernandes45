@@ -12,7 +12,9 @@ function Footer() {
 
                 <div className="gm-footer-grid">
 
-                    {/* BRAND */}
+                    {/* =========================
+                        BRAND
+                    ========================== */}
                     <div className="gm-footer-brand">
 
                         <Link to="/" className="gm-footer-logo">
@@ -30,6 +32,7 @@ function Footer() {
 
                         <div className="gm-socials">
 
+                            {/* Facebook */}
                             <a
                                 href="https://www.facebook.com/thegoamonitor"
                                 target="_blank"
@@ -39,25 +42,27 @@ function Footer() {
                                 <i className="fa fa-facebook"></i>
                             </a>
 
+                            {/* X */}
                             <a
                                 href="https://x.com/thegoamonitor"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                aria-label="Twitter"
+                                aria-label="X"
                             >
-                               <span
-    style={{
-        fontSize: '16px',
-        fontWeight: '700',
-        lineHeight: '1'
-    }}
->
-    𝕏
-</span>
+                                <span
+                                    style={{
+                                        fontSize: '16px',
+                                        fontWeight: '700',
+                                        lineHeight: '1'
+                                    }}
+                                >
+                                    𝕏
+                                </span>
                             </a>
 
+                            {/* Instagram */}
                             <a
-                                href="https://www.instagram.com/thegoamonitor/"
+                                href="https://www.instagram.com/flashlab.creative/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Instagram"
@@ -65,6 +70,7 @@ function Footer() {
                                 <i className="fa fa-instagram"></i>
                             </a>
 
+                            {/* WhatsApp */}
                             <a
                                 href="https://wa.me/919923580022?text=Hello%2C%20I%20would%20like%20to%20get%20in%20touch%20with%20GoaMonitor."
                                 target="_blank"
@@ -79,66 +85,104 @@ function Footer() {
                     </div>
 
 
-                    {/* NEWS & SOCIETY */}
+                    {/* =========================
+                        QUICK LINKS
+                    ========================== */}
                     <div className="gm-footer-column">
 
-                        <h3>News & Society</h3>
+                        <h3>Quick Links</h3>
 
-                        <Link to="/category/politics">Politics</Link>
-                        <Link to="/category/crime">Crime</Link>
-                        <Link to="/category/development">Development</Link>
-                        <Link to="/category/education">Education</Link>
-                        <Link to="/category/environment">Environment</Link>
-                        <Link to="/category/agriculture">Agriculture</Link>
+                        <Link to="/">Home</Link>
+
+                        <a href="#">About</a>
+
+                        <a href="#">Careers</a>
+
+                        <a href="#">Internship</a>
+
+                        <a href="#">Advertising</a>
+
+                        <Link to="/contact">Contact Us</Link>
 
                     </div>
 
 
-                    {/* BUSINESS & LIFESTYLE */}
+                    {/* =========================
+                        MEDIA
+                    ========================== */}
                     <div className="gm-footer-column">
 
-                        <h3>Business & Lifestyle</h3>
+                        <h3>Media</h3>
 
-                        <Link to="/category/business">Business</Link>
-                        <Link to="/category/economy">Economy</Link>
-                        <Link to="/category/food">Food</Link>
-                        <Link to="/category/health">Health</Link>
-                        <Link to="/category/fashion+%26+style">
-                            Fashion & Style
-                        </Link>
-                        <Link to="/category/arts+%26+culture">
-                            Arts & Culture
-                        </Link>
+                        <a href="#">Live</a>
+
+                        <a href="#">Events</a>
+
+                        <a href="#">Podcasts</a>
+
+                        <a href="#">Interview</a>
+
+                        <a href="#">Web Stories</a>
+
+                        <a href="#">Newsletter</a>
 
                     </div>
 
 
-                    {/* SPORTS / TECH / TRAVEL */}
-                    <div className="gm-footer-column">
+                    {/* =========================
+                        TAGS
+                    ========================== */}
+                    <div className="gm-footer-column gm-footer-tags">
 
-                        <h3>Sports, Tech & Travel</h3>
+                        <h3>Tags</h3>
 
-                        <Link to="/category/sports">Sports</Link>
-                        <Link to="/category/technology">Technology</Link>
-                        <Link to="/category/tourism">Tourism</Link>
-                        <Link to="/category/travel">Travel</Link>
-                        <Link to="/category/science">Science</Link>
+                        <Link to="/category/politics">
+                            Politics
+                        </Link>
+
+                        <Link to="/category/crime">
+                            Crime
+                        </Link>
+
+                        <Link to="/category/business">
+                            Business
+                        </Link>
+
+                        <Link to="/category/sports">
+                            Sports
+                        </Link>
+
+                        <Link to="/category/health">
+                            Health
+                        </Link>
+
+                        <Link to="/category/tourism">
+                            Tourism
+                        </Link>
+
                         <Link to="/category/entertainment">
                             Entertainment
                         </Link>
 
-                    </div>
+                        <Link to="/category/technology">
+                            Technology
+                        </Link>
 
+                        <Link to="/category/education">
+                            Education
+                        </Link>
 
-                    {/* QUICK NAVIGATION */}
-                    <div className="gm-footer-column">
+                        <Link to="/category/environment">
+                            Environment
+                        </Link>
 
-                        <h3>Quick Navigation</h3>
+                        <Link to="/category/agriculture">
+                            Agriculture
+                        </Link>
 
-                        <Link to="/">Home</Link>
-                        {/* <Link to="/about">About Us</Link> */}
-                        <Link to="/contact">Contact Us</Link>
-                        <Link to="/login">Login</Link>
+                        <Link to="/category/travel">
+                            Travel
+                        </Link>
 
                     </div>
 
@@ -146,16 +190,26 @@ function Footer() {
 
 
                 {/* =========================
+                    LOGIN BUTTON
+                ========================== */}
+                <div className="gm-footer-login-corner">
+
+                    <Link to="/login">
+                        Login
+                    </Link>
+
+                </div>
+
+
+                {/* =========================
                     DIVIDER
                 ========================== */}
-
                 <div className="gm-footer-divider"></div>
 
 
                 {/* =========================
                     BOTTOM
                 ========================== */}
-
                 <div className="gm-footer-bottom">
 
                     <span>
@@ -163,16 +217,16 @@ function Footer() {
                         All rights reserved.
                     </span>
 
-                   <span>
-    Designed & Developed by{' '}
-    <a
-        href="https://cybercreative.in/"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
-        Cyber Creative
-    </a>
-</span>
+                    <span>
+                        Designed &amp; Developed by{' '}
+                        <a
+                            href="https://cybercreative.in/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Cyber Creative
+                        </a>
+                    </span>
 
                 </div>
 

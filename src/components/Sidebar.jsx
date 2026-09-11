@@ -222,215 +222,207 @@ function Sidebar({ recentPosts = [] }) {
 
 
             {/* =================================================
-                STAY CONNECTED
-            ================================================= */}
-            <aside
-                style={{
-                    marginTop: '30px',
-                    marginBottom: '30px'
-                }}
-            >
+    STAY CONNECTED
+================================================= */}
+<aside
+    style={{
+        marginTop: '30px',
+        marginBottom: '30px'
+    }}
+>
+    {/* TITLE */}
+    <h4
+        style={{
+            fontFamily: 'Georgia, serif',
+            fontSize: '24px',
+            fontWeight: '700',
+            marginBottom: '12px'
+        }}
+    >
+        Stay Connected
+    </h4>
 
-                {/* TITLE */}
-                <h4
-                    style={{
-                        fontFamily: 'Georgia, serif',
-                        fontSize: '24px',
-                        fontWeight: '700',
-                        marginBottom: '12px'
-                    }}
-                >
-                    Stay Connected
-                </h4>
-
-
-                {/* RED UNDERLINE */}
-                <div
-                    style={{
-                        height: '5px',
-                        background: '#eeeeee',
-                        marginBottom: '22px',
-                        position: 'relative'
-                    }}
-                >
-
-                    <div
-                        style={{
-                            width: '60px',
-                            height: '5px',
-                            background: '#e31b23'
-                        }}
-                    />
-
-                </div>
+    {/* RED UNDERLINE */}
+    <div
+        style={{
+            height: '5px',
+            background: '#eeeeee',
+            marginBottom: '22px',
+            position: 'relative'
+        }}
+    >
+        <div
+            style={{
+                width: '60px',
+                height: '5px',
+                background: '#e31b23'
+            }}
+        />
+    </div>
 
 
-                {/* FACEBOOK */}
-                <a
-                    href="https://www.facebook.com/thegoamonitor"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        width: '100%',
-                        height: '54px',
-                        marginBottom: '12px',
-                        background: '#4267a9',
-                        color: '#ffffff',
-                        textDecoration: 'none'
-                    }}
-                >
+    {/* INSTAGRAM */}
+    <a
+        href="https://www.instagram.com/thegoamonitor/"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+            display: 'flex',
+            alignItems: 'center',
+            width: '100%',
+            height: '54px',
+            marginBottom: '12px',
+            background: '#c13584',
+            color: '#ffffff',
+            textDecoration: 'none'
+        }}
+    >
+        <div
+            style={{
+                width: '48px',
+                height: '54px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '22px',
+                borderRight: '1px solid rgba(255,255,255,0.25)'
+            }}
+        >
+            <i className="fa fa-instagram"></i>
+        </div>
 
-                    <div
-                        style={{
-                            width: '48px',
-                            height: '54px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            fontSize: '24px',
-                            borderRight: '1px solid rgba(255,255,255,0.25)'
-                        }}
-                    >
-                        <i className="fa fa-facebook"></i>
-                    </div>
+        <div
+            style={{
+                flex: 1,
+                paddingLeft: '14px',
+                fontSize: '15px',
+                fontWeight: '700'
+            }}
+        >
+            <strong>743</strong> Shares
+        </div>
 
-                    <div
-                        style={{
-                            flex: 1,
-                            paddingLeft: '14px',
-                            fontSize: '15px',
-                            fontWeight: '700'
-                        }}
-                    >
-                        <strong>19,243</strong> Fans
-                    </div>
-
-                    <div
-                        style={{
-                            padding: '0 14px',
-                            fontSize: '15px',
-                            fontWeight: '700',
-                            borderLeft: '1px solid rgba(255,255,255,0.25)'
-                        }}
-                    >
-                        Like
-                    </div>
-
-                </a>
+        <div
+            style={{
+                padding: '0 14px',
+                fontSize: '15px',
+                fontWeight: '700',
+                borderLeft: '1px solid rgba(255,255,255,0.25)'
+            }}
+        >
+            Share
+        </div>
+    </a>
 
 
-                {/* TWITTER / X */}
-                <a
-                    href="https://x.com/thegoamonitor"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        width: '100%',
-                        height: '54px',
-                        marginBottom: '12px',
-                        background: '#55ace3',
-                        color: '#ffffff',
-                        textDecoration: 'none'
-                    }}
-                >
+    {/* FACEBOOK */}
+    <a
+        href="https://www.facebook.com/thegoamonitor"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+            display: 'flex',
+            alignItems: 'center',
+            width: '100%',
+            height: '54px',
+            marginBottom: '12px',
+            background: '#4267a9',
+            color: '#ffffff',
+            textDecoration: 'none'
+        }}
+    >
+        <div
+            style={{
+                width: '48px',
+                height: '54px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '24px',
+                borderRight: '1px solid rgba(255,255,255,0.25)'
+            }}
+        >
+            <i className="fa fa-facebook"></i>
+        </div>
 
-                    <div
-                        style={{
-                            width: '48px',
-                            height: '54px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            fontSize: '22px',
-                            borderRight: '1px solid rgba(255,255,255,0.25)'
-                        }}
-                    >
-                        <i className="fa fa-twitter"></i>
-                    </div>
+        <div
+            style={{
+                flex: 1,
+                paddingLeft: '14px',
+                fontSize: '15px',
+                fontWeight: '700'
+            }}
+        >
+            <strong>682</strong> Shares
+        </div>
 
-                    <div
-                        style={{
-                            flex: 1,
-                            paddingLeft: '14px',
-                            fontSize: '15px',
-                            fontWeight: '700'
-                        }}
-                    >
-                        <strong>2,076</strong> Followers
-                    </div>
-
-                    <div
-                        style={{
-                            padding: '0 14px',
-                            fontSize: '15px',
-                            fontWeight: '700',
-                            borderLeft: '1px solid rgba(255,255,255,0.25)'
-                        }}
-                    >
-                        Follow
-                    </div>
-
-                </a>
+        <div
+            style={{
+                padding: '0 14px',
+                fontSize: '15px',
+                fontWeight: '700',
+                borderLeft: '1px solid rgba(255,255,255,0.25)'
+            }}
+        >
+            Share
+        </div>
+    </a>
 
 
-                {/* YOUTUBE */}
-                <a
-                    href="#"
-                    style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        width: '100%',
-                        height: '54px',
-                        marginBottom: '12px',
-                        background: '#d71920',
-                        color: '#ffffff',
-                        textDecoration: 'none'
-                    }}
-                >
+    {/* X */}
+    <a
+        href="https://x.com/thegoamonitor"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+            display: 'flex',
+            alignItems: 'center',
+            width: '100%',
+            height: '54px',
+            marginBottom: '12px',
+            background: '#222222',
+            color: '#ffffff',
+            textDecoration: 'none'
+        }}
+    >
+        <div
+            style={{
+                width: '48px',
+                height: '54px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '22px',
+                borderRight: '1px solid rgba(255,255,255,0.25)'
+            }}
+        >
+            𝕏
+        </div>
 
-                    <div
-                        style={{
-                            width: '48px',
-                            height: '54px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            fontSize: '22px',
-                            borderRight: '1px solid rgba(255,255,255,0.25)'
-                        }}
-                    >
-                        <i className="fa fa-youtube"></i>
-                    </div>
+        <div
+            style={{
+                flex: 1,
+                paddingLeft: '14px',
+                fontSize: '15px',
+                fontWeight: '700'
+            }}
+        >
+            <strong>391</strong> Shares
+        </div>
 
-                    <div
-                        style={{
-                            flex: 1,
-                            paddingLeft: '14px',
-                            fontSize: '15px',
-                            fontWeight: '700'
-                        }}
-                    >
-                        <strong>15,200</strong> Followers
-                    </div>
+        <div
+            style={{
+                padding: '0 14px',
+                fontSize: '15px',
+                fontWeight: '700',
+                borderLeft: '1px solid rgba(255,255,255,0.25)'
+            }}
+        >
+            Share
+        </div>
+    </a>
 
-                    <div
-                        style={{
-                            padding: '0 14px',
-                            fontSize: '15px',
-                            fontWeight: '700',
-                            borderLeft: '1px solid rgba(255,255,255,0.25)'
-                        }}
-                    >
-                        Subscribe
-                    </div>
-
-                </a>
-
-                        </aside>
+</aside>
 
 
             {/* =================================================
